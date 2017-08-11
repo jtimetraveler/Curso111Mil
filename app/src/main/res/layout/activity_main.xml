@@ -8,59 +8,94 @@
     tools:layout_editor_absoluteY="81dp"
     tools:layout_editor_absoluteX="0dp">
 
-    <EditText
-        android:id="@+id/editText3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="9dp"
-        android:layout_marginRight="-33dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Nombre y Apellido"
-        android:visibility="visible"
-        app:layout_constraintBottom_toTopOf="@+id/editText4"
-        app:layout_constraintRight_toRightOf="@+id/editText4" />
-
-    <EditText
-        android:id="@+id/editText4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:layout_marginRight="0dp"
-        android:ems="10"
-        android:inputType="textEmailAddress"
-        android:selectAllOnFocus="false"
-        android:singleLine="false"
-        android:text="mail"
-        app:layout_constraintBottom_toTopOf="@+id/editText5"
-        app:layout_constraintRight_toRightOf="@+id/editText5" />
-
-    <EditText
-        android:id="@+id/editText5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPassword|textWebPassword|numberPassword"
-        android:text="contraseña"
-        tools:layout_editor_absoluteY="247dp"
-        android:layout_marginRight="-8dp"
-        app:layout_constraintRight_toRightOf="@+id/editText6" />
-
-    <EditText
-        android:id="@+id/editText6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPassword|textWebPassword|numberPassword"
-        android:text="repitir contraseña"
-        tools:layout_editor_absoluteY="300dp"
-        tools:layout_editor_absoluteX="77dp" />
-
-    <LinearLayout
-        android:layout_width="368dp"
-        android:layout_height="495dp"
-        android:orientation="horizontal"
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         tools:layout_editor_absoluteX="8dp"
-        tools:layout_editor_absoluteY="8dp"></LinearLayout>
+        tools:layout_editor_absoluteY="8dp">
+
+        <LinearLayout
+            android:id="@+id/linearLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            tools:layout_editor_absoluteX="72dp"
+            tools:layout_editor_absoluteY="16dp"
+            android:layout_marginTop="26dp"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true">
+
+            <EditText
+                android:id="@+id/campo_nombre"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="9dp"
+                android:ems="10"
+                android:hint="Nombre y Apellido"
+                android:inputType="textPersonName"
+                android:visibility="visible"
+                app:layout_constraintBottom_toTopOf="@+id/campo_mail"
+                app:layout_constraintRight_toRightOf="@+id/campo_mail" />
+
+            <EditText
+                android:id="@+id/campo_contrasenia"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="Contraseña"
+                android:inputType="textPassword"
+                app:layout_constraintRight_toRightOf="@+id/campo_repContrasenia"
+                tools:layout_editor_absoluteY="247dp" />
+
+            <EditText
+                android:id="@+id/campo_repContrasenia"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="Repitir contraseña"
+                android:inputType="textPassword"
+                tools:layout_editor_absoluteX="77dp"
+                tools:layout_editor_absoluteY="300dp" />
+
+            <EditText
+                android:id="@+id/campo_mail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:ems="10"
+                android:hint="e-mail"
+                android:inputType="textEmailAddress"
+                android:selectAllOnFocus="false"
+                android:singleLine="false"
+                app:layout_constraintBottom_toTopOf="@+id/campo_contrasenia"
+                app:layout_constraintRight_toRightOf="@+id/campo_contrasenia" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/linearLayout"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:onClick="guardarDatos"
+            android:text="Finalizar"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+            tools:layout_editor_absoluteX="136dp" />
+
+        <TextView
+            android:id="@+id/mensaje"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:layout_alignEnd="@+id/linearLayout"
+            android:layout_alignLeft="@+id/linearLayout"
+            android:layout_alignRight="@+id/linearLayout"
+            android:layout_alignStart="@+id/linearLayout"
+            android:layout_below="@+id/linearLayout"
+            android:textAlignment="center"
+            android:visibility="invisible"
+            tools:layout_editor_absoluteX="120dp"
+            tools:layout_editor_absoluteY="269dp" />
+    </RelativeLayout>
 
 </android.support.constraint.ConstraintLayout>
