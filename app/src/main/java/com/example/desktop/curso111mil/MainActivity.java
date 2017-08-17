@@ -1,5 +1,6 @@
 package com.example.desktop.curso111mil;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -16,6 +17,7 @@ public class MainActivity extends AppCompatActivity {
     private EditText campoRepContrasenia;
     private EditText campoMail;
     private TextView mensaje;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,6 +54,9 @@ public class MainActivity extends AppCompatActivity {
                 mensaje.setTextColor(Color.GRAY);
                 mensaje.setText("Está todo OK, "+usuario.getNombre());
                 mensaje.setVisibility(View.VISIBLE);
+                Intent intent = new Intent(this,Confirmacion.class);
+                intent.putExtra("EXTRA_NOMBRE",usuario.getNombre());
+                startActivity(intent);
             }
 
 
@@ -61,6 +66,8 @@ public class MainActivity extends AppCompatActivity {
             mensaje.setText("Las contraseñas no coinsiden");
             mensaje.setVisibility(View.VISIBLE);
         }
+
+
 
     }
 }
